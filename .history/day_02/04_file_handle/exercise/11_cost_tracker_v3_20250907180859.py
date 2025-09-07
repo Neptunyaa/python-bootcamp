@@ -1,0 +1,68 @@
+def spend(expenses):
+    """TODO: Add a new cost in expenses"""
+    try:
+        amount = int(input("Enter amount spent: "))
+        expenses.append(amount)
+        print(f"Added expense: {amount}")
+    except ValueError:
+        print("Invalid amount. Please enter a number.")
+
+
+def refund(expenses):
+    """TODO: Remove the last cost added (if any)"""
+    if expenses:
+        removed = expenses.pop()
+        print(f"Refunded last expense: {removed}")
+    else:
+        print("No expenses to refund.")
+
+
+def show(expenses):
+    """TODO: Print the current list of expenses and total"""
+    if expenses:
+        print("Expenses:", expenses)
+        print("Total:", sum(expenses))
+    else:
+        print("No expenses recorded.")
+
+
+def save(expenses):
+    """Save the current list of expenses to a file"""
+    with open("cost_tracker.txt", 'w') as file:
+        for expense in expenses:
+            file.write(f"{expense}\n")
+    print("Expenses saved to cost_tracker.txt")
+
+
+def load(expenses):
+    """Load expenses from a file and update the expenses list"""
+    with open("cost_tracker.txt", 'r') as file:
+        file_contents = file.readlines()
+        file_contents = []
+            
+        print("Expenses loaded from cost_tracker.txt")
+
+
+def main():
+    running = True
+    current_expenses = []
+
+    while running:
+        command = input("Command: ")
+        if command == "spend":
+            spend(current_expenses)
+        elif command == "refund":
+            refund(current_expenses)
+        elif command == "show":
+            show(current_expenses)
+        elif command == "save":
+            save(current_expenses)
+        elif command == "load":
+            load(current_expenses)        
+        elif command == "quit":
+            running = False
+        else:
+            print(" Use spend, refund, show, save, load or quit.")
+
+
+main()
