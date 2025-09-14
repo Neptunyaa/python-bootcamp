@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Hobbies</title>
+</head>
+<body>
+    <h1>My Hobbies</h1>
+    <ul>
+        {% for hobby in hobbies %}
+        <li>Hobby {{loop.index}}: {{ hobby }}</li>
+        {% end for %}
+    </ul>
+<a href="/">Go Back</a>
+</body>
+</html>

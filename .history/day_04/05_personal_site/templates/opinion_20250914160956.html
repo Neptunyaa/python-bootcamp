@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Favorite Games</title>
+</head>
+<body>
+    <h1>My Favorite Games</h1>
+    <ul>
+        {% for game in game %}
+        <li>{{ game }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Go Back</a>
+</body>
+</html>
